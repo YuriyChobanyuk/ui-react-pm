@@ -7,6 +7,7 @@ import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import SideNavigation from "../side-navigation";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -20,7 +21,11 @@ const useStyles = makeStyles((theme: Theme) =>
       flexGrow: 1,
     },
     appBar: {
-      zIndex: theme.zIndex.drawer + 101,
+      zIndex: theme.zIndex.modal + 1,
+    },
+    linkButton: {
+      underline: "none",
+      color: theme.palette.grey[50],
     },
   })
 );
@@ -41,14 +46,16 @@ const ApplicationBar: React.FC = () => {
             className={classes.menuButton}
             color="inherit"
             aria-label="menu"
-            onClick={() => setOpenNavigation(!openNavigation)}
+            onClick={handleToggle}
           >
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" className={classes.title}>
             News
           </Typography>
-          <Button color="inherit">Login</Button>
+          <Link to={"/login"}>
+            <Button className={classes.linkButton}>Login</Button>
+          </Link>
         </Toolbar>
       </AppBar>
 
