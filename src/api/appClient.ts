@@ -1,5 +1,5 @@
 import { API_ENDPOINT, API_TIMEOUT } from "../utils/constants";
-import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from "axios";
+import axios, { AxiosError, AxiosRequestConfig } from "axios";
 import * as ls from "../services/localStorage";
 
 const appClient = axios.create({

@@ -67,6 +67,7 @@ const LoginPage: React.FC = () => {
       console.log({ values });
       handleLogin(values);
     },
+    validateOnMount: false,
   });
 
   return (

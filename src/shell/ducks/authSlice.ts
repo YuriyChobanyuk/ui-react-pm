@@ -1,8 +1,6 @@
-import { SignUpCredentials } from "../../interfaces/auth.interface";
 import { createSlice, PayloadAction, Action } from "@reduxjs/toolkit";
-import { ApplicationError, IUser, LoginCredentials } from "../../interfaces";
-import { ApiErrorActionPayload } from "./authEpics";
-import { serializeAxiosError } from "../../utils/api.utils";
+import { ApplicationError, IUser, LoginCredentials, SignUpCredentials, ApiErrorActionPayload } from "../../interfaces";
+
 
 interface InitialState {
   user: {
@@ -59,7 +57,7 @@ export const { reducer: authReducer, actions: authActions } = createSlice({
     },
     getUserError(state, action: PayloadAction<ApiErrorActionPayload>) {
       state.user.loading = false;
-      state.user.error = serializeAxiosError(action.payload.error);
+      state.user.error = action.payload.error;
     },
     login(state, action: PayloadAction<LoginCredentials>) {
       state.login.loading = true;
@@ -72,7 +70,7 @@ export const { reducer: authReducer, actions: authActions } = createSlice({
     },
     loginError(state, action: PayloadAction<ApiErrorActionPayload>) {
       state.login.loading = false;
-      state.login.error = serializeAxiosError(action.payload.error);
+      state.login.error = action.payload.error;
     },
     signUp(state, action: PayloadAction<SignUpCredentials>) {
       state.signUp.loading = true;
@@ -85,7 +83,7 @@ export const { reducer: authReducer, actions: authActions } = createSlice({
     },
     signUpError(state, action: PayloadAction<ApiErrorActionPayload>) {
       state.signUp.loading = false;
-      state.signUp.error = serializeAxiosError(action.payload.error);
+      state.signUp.error = action.payload.error;
     },
     refresh(state, action: PayloadAction<Action>) {
       state.refresh.loading = true;
@@ -98,7 +96,7 @@ export const { reducer: authReducer, actions: authActions } = createSlice({
     },
     refreshError(state, action: PayloadAction<ApiErrorActionPayload>) {
       state.refresh.loading = false;
-      state.refresh.error = serializeAxiosError(action.payload.error);
+      state.refresh.error = action.payload.error;
     },
   },
 });

@@ -16,7 +16,7 @@ export const store = configureStore({
     getDefaultMiddleware({
       thunk: false,
       immutableCheck: true,
-      serializableCheck: true,
+      serializableCheck: false,
     }).concat([routerMiddleware(history), epicMiddleware]),
   devTools: process.env.NODE_ENV === "development",
 });

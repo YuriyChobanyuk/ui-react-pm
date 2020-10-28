@@ -1,5 +1,4 @@
-import { REFRESH_ENDPOINT } from "./../../api/endpoints";
-import { RootState } from "./../../rootReducer";
+import { RootState } from "../../rootReducer";
 import { combineEpics, Epic, ofType } from "redux-observable";
 import { authActions } from "./authSlice";
 import { map, mergeMap, catchError, filter } from "rxjs/operators";
@@ -8,21 +7,11 @@ import { from, of } from "rxjs";
 import { setAccessToken, getAccessToken } from "../../services/localStorage";
 import { ExtendedAxiosError } from "../../api/appClient";
 import { push } from "connected-react-router";
+import { ApiErrorAction } from "../../interfaces";
+import { serializeAxiosError } from "../../utils/api.utils";
 
 type LoginAction = ReturnType<typeof authActions.login>;
 type SignUpAction = ReturnType<typeof authActions.signUp>;
-export type ApiErrorActionPayload = {
-  originalAction: {
-    type: string;
-    payload: any;
-    error?: boolean;
-  };
-  error: ExtendedAxiosError;
-};
-export type ApiErrorAction = {
-  type: string;
-  payload: ApiErrorActionPayload;
-};
 
 const loginEpic: Epic<any, any, RootState, Api> = (
   action$,
@@ -39,7 +28,13 @@ const loginEpic: Epic<any, any, RootState, Api> = (
           return authActions.loginSuccess(data.user);
         }),
         catchError((error: ExtendedAxiosError) => {
-          return of(authActions.loginError({ error, originalAction: action }));
+          const applicationError = serializeAxiosError(error);
+          return of(
+            authActions.loginError({
+              error: applicationError,
+              originalAction: action,
+            })
+          );
         })
       );
     })
@@ -55,9 +50,15 @@ const currentUserEpic: Epic<any, any, RootState, Api> = (
     mergeMap((action) =>
       from(authApi.getUserRequest()).pipe(
         map((res) => authActions.getUserSuccess(res)),
-        catchError((error: ExtendedAxiosError) =>
-          of(authActions.getUserError({ error, originalAction: action }))
-        )
+        catchError((error: ExtendedAxiosError) => {
+          const applicationError = serializeAxiosError(error);
+          return of(
+            authActions.getUserError({
+              error: applicationError,
+              originalAction: action,
+            })
+          );
+        })
       )
     )
   );
@@ -70,14 +71,11 @@ const refreshEpic: Epic<any, any, RootState, Api> = (
   action$.pipe(
     ofType(authActions.getUserError.type),
     filter((action: ApiErrorAction) => {
-      return action.payload.error?.isAxiosError;
+      return action.payload.error?.status?.isAxiosError;
     }),
     map((action) => {
-      const originalRequest = action.payload.error?.config;
-      const isRetry = action.payload.originalAction.error;
-      const isAuthError = action.payload.error?.response?.status === 401;
-      // todo find better way to determine if request was for token refresh
-      const isRefreshError = originalRequest.url?.includes(REFRESH_ENDPOINT);
+      const { isAuthError, isRefreshError } = action.payload.error.status;
+      const isRetry = action.payload.originalAction.isRetry;
       const hasAccessToken = !!getAccessToken();
 
       const shouldRefresh =
@@ -96,7 +94,7 @@ const refreshEpic: Epic<any, any, RootState, Api> = (
       return from(authApi.refreshRequest()).pipe(
         mergeMap((res) => {
           setAccessToken(res.token);
-          originalAction.error = true;
+          originalAction.isRetry = true;
 
           return from([
             authActions.refreshSuccess(res.data.user),
@@ -104,7 +102,13 @@ const refreshEpic: Epic<any, any, RootState, Api> = (
           ]);
         }),
         catchError((error: ExtendedAxiosError) => {
-          return of(authActions.refreshError({ error, originalAction }));
+          const applicationError = serializeAxiosError(error);
+          return of(
+            authActions.refreshError({
+              error: applicationError,
+              originalAction,
+            })
+          );
         })
       );
     })

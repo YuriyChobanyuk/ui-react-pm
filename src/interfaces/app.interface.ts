@@ -1,5 +1,24 @@
 export interface ApplicationError {
   name?: string;
   message: string;
-  statusCode?: number;
+  status: {
+    statusCode?: number;
+    isAuthError: boolean;
+    isRefreshError: boolean;
+    isAxiosError: boolean;
+  }
 }
+
+export type ApiErrorActionPayload = {
+  originalAction: {
+    type: string;
+    payload: any;
+    isRetry?: boolean;
+  };
+  error: ApplicationError;
+};
+
+export type ApiErrorAction = {
+  type: string;
+  payload: ApiErrorActionPayload;
+};
