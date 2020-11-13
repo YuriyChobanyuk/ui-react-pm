@@ -1,4 +1,4 @@
-import { ShowType } from "./show.interface";
+import { ShowType } from './show.interface';
 
 export interface OmdbSearchData {
   title: string;

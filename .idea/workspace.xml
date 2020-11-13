@@ -1,29 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="10f8b1ec-d60c-444c-a78e-6e69b5b388a4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.eslintignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.eslintrc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/constants/navigation.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/hooks/use-menu.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shell/components/app-bar/ApplicationBar.test.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shell/components/app-bar/ApplicationBarContainer.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shell/components/app-bar/components/user-menu/UserMenu.test.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shell/components/app-bar/components/user-menu/UserMenu.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shell/components/app-bar/components/user-menu/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/navigation.utils.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.prettierignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.prettierrc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.eslintignore" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.eslintrc" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintrc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/admin/AdminRoot.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/admin/AdminRoot.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/admin/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/admin/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/appClient.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/appClient.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/api/auth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/auth.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/endpoints.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/endpoints.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/configureStore.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/configureStore.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hooks/use-menu.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks/use-menu.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/interfaces/app.interface.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/interfaces/app.interface.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/interfaces/user.interface.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/interfaces/user.interface.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/interfaces/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/interfaces/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/interfaces/omdb.interface.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/interfaces/omdb.interface.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/interfaces/show.interface.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/interfaces/show.interface.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rootEpic.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/rootEpic.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rootReducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/rootReducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serviceWorker.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/serviceWorker.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/localStorage.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/localStorage.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/shell/Shell.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shell/Shell.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shell/components/app-bar/ApplicationBar.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shell/components/app-bar/ApplicationBar.test.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/shell/components/app-bar/ApplicationBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shell/components/app-bar/ApplicationBar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shell/components/app-bar/ApplicationBarContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shell/components/app-bar/ApplicationBarContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shell/components/app-bar/components/user-menu/UserMenu.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shell/components/app-bar/components/user-menu/UserMenu.test.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shell/components/app-bar/components/user-menu/UserMenu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shell/components/app-bar/components/user-menu/UserMenu.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shell/components/app-bar/components/user-menu/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/shell/components/app-bar/components/user-menu/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/shell/components/app-bar/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/shell/components/app-bar/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/shell/components/login-page/LoginPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shell/components/login-page/LoginPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shell/components/login-page/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/shell/components/login-page/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/shell/components/side-navigation/SideNavigation.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shell/components/side-navigation/SideNavigation.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shell/components/side-navigation/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/shell/components/side-navigation/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shell/components/signup-page/SighupPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shell/components/signup-page/SighupPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shell/components/signup-page/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/shell/components/signup-page/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/shell/ducks/authEpics.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/shell/ducks/authEpics.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shell/ducks/authSelectors.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/shell/ducks/authSelectors.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/shell/ducks/authSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/shell/ducks/authSlice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shell/ducks/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/shell/ducks/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shell/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/shell/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/user/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/user/Home.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/user/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/user/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/api.utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/api.utils.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/constants.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/constants.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/navigation.utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/navigation.utils.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -169,7 +199,9 @@
       <workItem from="1604951638990" duration="612000" />
       <workItem from="1605036345196" duration="19000" />
       <workItem from="1605278354046" duration="566000" />
-      <workItem from="1605278930497" duration="1144000" />
+      <workItem from="1605278930497" duration="4381000" />
+      <workItem from="1605287655817" duration="333000" />
+      <workItem from="1605288001639" duration="3690000" />
     </task>
     <servers />
   </component>
@@ -213,9 +245,9 @@
       <screen x="0" y="34" width="1920" height="1046" />
     </state>
     <state width="746" height="596" key="SwitcherDM/0.34.1920.1046@0.34.1920.1046" timestamp="1603913994408" />
-    <state x="453" y="34" width="1009" height="1470" key="search.everywhere.popup" timestamp="1604249724503">
+    <state x="453" y="34" width="1009" height="1470" key="search.everywhere.popup" timestamp="1605289968379">
       <screen x="0" y="34" width="1920" height="1046" />
     </state>
-    <state x="453" y="34" width="1009" height="1470" key="search.everywhere.popup/0.34.1920.1046@0.34.1920.1046" timestamp="1604249724503" />
+    <state x="453" y="34" width="1009" height="1470" key="search.everywhere.popup/0.34.1920.1046@0.34.1920.1046" timestamp="1605289968379" />
   </component>
 </project>

@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react';
 
 export function useMenu(): [
   boolean,
   (event: React.MouseEvent<HTMLElement>) => void,
   () => void,
-  null | HTMLElement
+  null | HTMLElement,
 ] {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);

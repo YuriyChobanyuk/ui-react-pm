@@ -1,12 +1,12 @@
-import React from "react";
-import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
-import Drawer from "@material-ui/core/Drawer";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
-import ListItemText from "@material-ui/core/ListItemText";
-import InboxIcon from "@material-ui/icons/MoveToInbox";
-import MailIcon from "@material-ui/icons/Mail";
+import React from 'react';
+import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import Drawer from '@material-ui/core/Drawer';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import InboxIcon from '@material-ui/icons/MoveToInbox';
+import MailIcon from '@material-ui/icons/Mail';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -19,14 +19,14 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     drawerPaper: {
       top: 56,
-      [`${theme.breakpoints.up("xs")} and (orientation: landscape)`]: {
+      [`${theme.breakpoints.up('xs')} and (orientation: landscape)`]: {
         top: 48,
       },
-      [theme.breakpoints.up("sm")]: {
+      [theme.breakpoints.up('sm')]: {
         top: 64,
       },
     },
-  })
+  }),
 );
 
 interface Props {
@@ -50,7 +50,7 @@ const SideNavigation: React.FC<Props> = ({ open, handleClose }) => {
     >
       <div className={classes.list} role="presentation">
         <List>
-          {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
+          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
             <ListItem button key={text}>
               <ListItemIcon>
                 {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}

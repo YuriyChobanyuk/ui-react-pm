@@ -1,10 +1,10 @@
-import { history } from "./history";
-import { configureStore } from "@reduxjs/toolkit";
-import { routerMiddleware } from "connected-react-router";
-import { createEpicMiddleware } from "redux-observable";
-import rootReducer, { RootState } from "./rootReducer";
-import api from "./api";
-import rootEpic from "./rootEpic";
+import { configureStore } from '@reduxjs/toolkit';
+import { routerMiddleware } from 'connected-react-router';
+import { createEpicMiddleware } from 'redux-observable';
+import { history } from './history';
+import rootReducer, { RootState } from './rootReducer';
+import api from './api';
+import rootEpic from './rootEpic';
 
 const epicMiddleware = createEpicMiddleware<any, any, RootState>({
   dependencies: api,
@@ -18,7 +18,7 @@ export const store = configureStore({
       immutableCheck: true,
       serializableCheck: false,
     }).concat([routerMiddleware(history), epicMiddleware]),
-  devTools: process.env.NODE_ENV === "development",
+  devTools: process.env.NODE_ENV === 'development',
 });
 
 epicMiddleware.run(rootEpic);

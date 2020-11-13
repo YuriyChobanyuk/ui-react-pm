@@ -1,11 +1,11 @@
-import { createSlice, PayloadAction, Action } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction, Action } from '@reduxjs/toolkit';
 import {
   ApplicationError,
   IUser,
   LoginCredentials,
   SignUpCredentials,
   ApiErrorActionPayload,
-} from "../../interfaces";
+} from '../../interfaces';
 
 interface InitialState {
   user: {
@@ -48,7 +48,7 @@ const initialState: InitialState = {
 };
 
 export const { reducer: authReducer, actions: authActions } = createSlice({
-  name: "auth",
+  name: 'auth',
   initialState,
   reducers: {
     getUser(state) {

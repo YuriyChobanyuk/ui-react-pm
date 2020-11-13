@@ -1,1 +1,1 @@
-export { default } from "./ApplicationBarContainer";
+export { default } from './ApplicationBarContainer';

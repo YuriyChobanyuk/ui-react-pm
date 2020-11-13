@@ -1,6 +1,6 @@
-import { API_ENDPOINT, API_TIMEOUT } from "../utils/constants";
-import axios, { AxiosError, AxiosRequestConfig } from "axios";
-import * as ls from "../services/localStorage";
+import axios, { AxiosError, AxiosRequestConfig } from 'axios';
+import { API_ENDPOINT, API_TIMEOUT } from '../utils/constants';
+import * as ls from '../services/localStorage';
 
 const appClient = axios.create({
   baseURL: API_ENDPOINT,
@@ -20,14 +20,14 @@ appClient.interceptors.request.use(
   (config) => {
     const accessToken = ls.getAccessToken();
     if (accessToken) {
-      config.headers["Authorization"] = "Bearer " + accessToken;
+      config.headers.Authorization = `Bearer ${accessToken}`;
     }
     // config.headers['Content-Type'] = 'application/json';
     return config;
   },
   (error) => {
     Promise.reject(error);
-  }
+  },
 );
 
 // appClient.interceptors.response.use(

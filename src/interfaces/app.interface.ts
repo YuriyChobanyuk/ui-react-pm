@@ -6,7 +6,7 @@ export interface ApplicationError {
     isAuthError: boolean;
     isRefreshError: boolean;
     isAxiosError: boolean;
-  }
+  };
 }
 
 export type ApiErrorActionPayload = {
@@ -15,7 +15,7 @@ export type ApiErrorActionPayload = {
     payload: any;
     meta?: {
       isRetry?: boolean;
-    }
+    };
   };
   error: ApplicationError;
 };

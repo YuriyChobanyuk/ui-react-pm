@@ -1,5 +1,5 @@
-import { authEpic } from "./shell/ducks";
-import { combineEpics } from "redux-observable";
+import { combineEpics } from 'redux-observable';
+import { authEpic } from './shell/ducks';
 
 const rootEpic = combineEpics(authEpic);
 

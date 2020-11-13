@@ -1,7 +1,5 @@
-import React from "react";
+import React from 'react';
 
-const AdminRoot = () => {
-  return <div>Here is admin root</div>;
-};
+const AdminRoot = () => <div>Here is admin root</div>;
 
 export default AdminRoot;

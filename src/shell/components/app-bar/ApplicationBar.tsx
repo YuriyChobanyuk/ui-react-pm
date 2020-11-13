@@ -1,19 +1,19 @@
-import React, { useState } from "react";
-import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
-import Button from "@material-ui/core/Button";
-import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
-import Box from "@material-ui/core/Box";
-import SideNavigation from "../side-navigation";
-import { Link, useLocation } from "react-router-dom";
-import ClickAwayListener from "@material-ui/core/ClickAwayListener";
-import { checkIsLoginPage } from "../../../utils/navigation.utils";
-import { IUser } from "../../../interfaces";
-import { useMenu } from "../../../hooks/use-menu";
-import UserMenu from "./components/user-menu";
+import React, { useState } from 'react';
+import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
+import IconButton from '@material-ui/core/IconButton';
+import MenuIcon from '@material-ui/icons/Menu';
+import Box from '@material-ui/core/Box';
+import { Link, useLocation } from 'react-router-dom';
+import ClickAwayListener from '@material-ui/core/ClickAwayListener';
+import SideNavigation from '../side-navigation';
+import { checkIsLoginPage } from '../../../utils/navigation.utils';
+import { IUser } from '../../../interfaces';
+import { useMenu } from '../../../hooks/use-menu';
+import UserMenu from './components/user-menu';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -27,18 +27,18 @@ const useStyles = makeStyles((theme: Theme) =>
       flexGrow: 1,
     },
     linkButton: {
-      textDecoration: "none",
+      textDecoration: 'none',
       color: theme.palette.grey[50],
     },
     linkText: {
       color: theme.palette.common.white,
-      textTransform: "capitalize",
-      display: "inline",
+      textTransform: 'capitalize',
+      display: 'inline',
     },
     link: {
-      textDecoration: "none",
+      textDecoration: 'none',
     },
-  })
+  }),
 );
 
 interface Props {
@@ -86,12 +86,9 @@ const ApplicationBar: React.FC<Props> = ({ user, handleLogout }) => {
             </Box>
 
             {isAuthenticated ? (
-              <UserMenu
-                user={user}
-                handleLogout={handleLogout}
-              />
+              <UserMenu user={user} handleLogout={handleLogout} />
             ) : (
-              <Link to={"/login"}>
+              <Link to="/login">
                 <Button className={classes.linkButton}>Login</Button>
               </Link>
             )}

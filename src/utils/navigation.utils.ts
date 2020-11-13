@@ -1,8 +1,8 @@
-import {LOGIN_PATH, SIGNUP_PATH} from "../constants/navigation";
+import { LOGIN_PATH, SIGNUP_PATH } from '../constants/navigation';
 
 export function getPath(...pathArr: string[]): string {
   if (!pathArr.length) {
-    return "/";
+    return '/';
   }
   return pathArr.join('/');
 }

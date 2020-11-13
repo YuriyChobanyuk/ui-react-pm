@@ -1,21 +1,21 @@
-import React from "react";
-import { render, fireEvent } from "@testing-library/react";
-import { Provider } from "react-redux";
-import { createStore } from "@reduxjs/toolkit";
-import { authReducer, authActions } from "../../../../ducks";
-import UserMenu from "./UserMenu";
-import { IUser, UserRole } from "../../../../../interfaces";
+import React from 'react';
+import { render, fireEvent } from '@testing-library/react';
+import { Provider } from 'react-redux';
+import { createStore } from '@reduxjs/toolkit';
+import { authReducer, authActions } from '../../../../ducks';
+import UserMenu from './UserMenu';
+import { IUser, UserRole } from '../../../../../interfaces';
 
-describe("user menu tests", () => {
+describe('user menu tests', () => {
   const user: IUser = {
-    name: "John",
-    email: "test@mail.com",
-    id: "12",
+    name: 'John',
+    email: 'test@mail.com',
+    id: '12',
     img_path: undefined,
     role: UserRole.USER,
   };
 
-  it("should dispatch logout", () => {
+  it('should dispatch logout', () => {
     const store = createStore(authReducer, {
       user: {
         data: user,
@@ -42,10 +42,10 @@ describe("user menu tests", () => {
           user={user}
           handleLogout={() => store.dispatch(authActions.logout())}
         />
-      </Provider>
+      </Provider>,
     );
 
-    fireEvent.click(userMenu.getByLabelText("user menu button"));
+    fireEvent.click(userMenu.getByLabelText('user menu button'));
     const logoutMenuItem = userMenu.getByText(/logout/i);
     fireEvent.click(logoutMenuItem);
 

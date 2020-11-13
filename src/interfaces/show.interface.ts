@@ -5,7 +5,6 @@ export enum ShowType {
   GAME = 'game',
 }
 
-
 export interface ShowData {
   title: string;
   year: string;
