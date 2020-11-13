@@ -13,8 +13,18 @@ const useStyles = makeStyles((theme: Theme) =>
     list: {
       width: 250,
     },
-    paper: {
-      top: theme.mixins.toolbar.minHeight,
+    drawer: {
+      width: 250,
+      flexShrink: 0,
+    },
+    drawerPaper: {
+      top: 56,
+      [`${theme.breakpoints.up("xs")} and (orientation: landscape)`]: {
+        top: 48,
+      },
+      [theme.breakpoints.up("sm")]: {
+        top: 64,
+      },
     },
   })
 );
@@ -31,10 +41,12 @@ const SideNavigation: React.FC<Props> = ({ open, handleClose }) => {
     <Drawer
       anchor="left"
       open={open}
-      classes={{
-        paper: classes.paper,
-      }}
       onClose={handleClose}
+      className={classes.drawer}
+      variant="persistent"
+      classes={{
+        paper: classes.drawerPaper,
+      }}
     >
       <div className={classes.list} role="presentation">
         <List>

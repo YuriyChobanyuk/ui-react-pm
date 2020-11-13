@@ -1,6 +1,11 @@
 import { createSlice, PayloadAction, Action } from "@reduxjs/toolkit";
-import { ApplicationError, IUser, LoginCredentials, SignUpCredentials, ApiErrorActionPayload } from "../../interfaces";
-
+import {
+  ApplicationError,
+  IUser,
+  LoginCredentials,
+  SignUpCredentials,
+  ApiErrorActionPayload,
+} from "../../interfaces";
 
 interface InitialState {
   user: {
@@ -97,6 +102,11 @@ export const { reducer: authReducer, actions: authActions } = createSlice({
     refreshError(state, action: PayloadAction<ApiErrorActionPayload>) {
       state.refresh.loading = false;
       state.refresh.error = action.payload.error;
+    },
+    logout(state) {
+      state.user.data = null;
+      state.user.loading = false;
+      state.user.error = null;
     },
   },
 });

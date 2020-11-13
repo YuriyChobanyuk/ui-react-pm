@@ -4,8 +4,7 @@ import {
   CURRENT_USER_ENDPOINT,
 } from "./endpoints";
 import appClient from "./appClient";
-import { LoginCredentials } from "./../interfaces/auth.interface";
-import { AuthResponse, IUser } from "../interfaces";
+import { AuthResponse, IUser, LoginCredentials } from "../interfaces";
 import { getResponseData } from "../utils/api.utils";
 
 export function refreshRequest(): Promise<AuthResponse> {

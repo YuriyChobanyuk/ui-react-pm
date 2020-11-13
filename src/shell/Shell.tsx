@@ -11,18 +11,7 @@ import { authActions, authSelectors } from "./ducks";
 const useStyles = makeStyles((theme: Theme) => {
   console.log(theme.mixins.toolbar.minHeight);
 
-  return createStyles({
-    content: {
-      paddingTop: 56,
-      [`${theme.breakpoints.up("xs")} and (orientation: landscape)`]: {
-        paddingTop: 48,
-      },
-      [theme.breakpoints.up("sm")]: {
-        paddingTop: 64,
-      },
-      minHeight: "100vh",
-    },
-  });
+  return createStyles({});
 });
 
 interface Props {
@@ -30,9 +19,9 @@ interface Props {
 }
 
 const Shell: React.FC<Props> = ({ children }) => {
-  const classes = useStyles();
   const dispatch = useDispatch();
   const user = useSelector(authSelectors.selectUserData);
+
   useEffect(() => {
     if (!user) {
       dispatch(authActions.getUser());
@@ -42,13 +31,11 @@ const Shell: React.FC<Props> = ({ children }) => {
   return (
     <>
       <ApplicationBar />
-      <div className={classes.content}>
-        <Switch>
-          <Route path="/login" component={LoginPage} />
-          <Route path="/signup" component={SignUpPage} />
-          {children}
-        </Switch>
-      </div>
+      <Switch>
+        <Route path="/login" component={LoginPage} />
+        <Route path="/signup" component={SignUpPage} />
+        {children}
+      </Switch>
     </>
   );
 };

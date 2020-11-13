@@ -13,7 +13,9 @@ export type ApiErrorActionPayload = {
   originalAction: {
     type: string;
     payload: any;
-    isRetry?: boolean;
+    meta?: {
+      isRetry?: boolean;
+    }
   };
   error: ApplicationError;
 };
