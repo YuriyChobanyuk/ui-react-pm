@@ -63,7 +63,6 @@ const LoginPage: React.FC = () => {
     validationSchema,
     initialValues,
     onSubmit: (userValues) => {
-      console.log({ userValues });
       handleLogin(userValues);
     },
     validateOnMount: false,

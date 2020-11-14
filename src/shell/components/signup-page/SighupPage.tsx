@@ -70,9 +70,7 @@ const SignUpPage: React.FC = () => {
   } = useFormik({
     validationSchema,
     initialValues,
-    onSubmit: (values) => {
-      console.log({ values });
-    },
+    onSubmit: () => {},
   });
 
   return (

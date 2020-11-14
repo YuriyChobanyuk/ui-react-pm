@@ -7,12 +7,10 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "test:all": "yarn test --watchAll=false",
     "lint": "eslint src/ --ext .ts,.tsx",
     "lint:fix": "yarn lint --fix",
     "format": "prettier src/**/* -w -u"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
   },
   "browserslist": {
     "production": [
@@ -25,6 +23,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn test:all && yarn lint"
+    }
   },
   "dependencies": {
     "@material-ui/core": "^4.11.0",
@@ -72,6 +75,7 @@
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.21.5",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "husky": "^4.3.0",
     "prettier": "^2.1.2"
   }
 }

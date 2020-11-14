@@ -27,7 +27,7 @@ describe('ApplicationBar tests', () => {
       </MemoryRouter>,
     );
 
-    applicationBar.debug();
+    expect(applicationBar.container).toBeInTheDocument();
   });
 
   it('should render user menu', () => {

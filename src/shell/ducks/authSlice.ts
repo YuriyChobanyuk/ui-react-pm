@@ -64,6 +64,7 @@ export const { reducer: authReducer, actions: authActions } = createSlice({
       state.user.loading = false;
       state.user.error = action.payload.error;
     },
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     login(state, action: PayloadAction<LoginCredentials>) {
       state.login.loading = true;
       state.login.error = null;
@@ -77,6 +78,7 @@ export const { reducer: authReducer, actions: authActions } = createSlice({
       state.login.loading = false;
       state.login.error = action.payload.error;
     },
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     signUp(state, action: PayloadAction<SignUpCredentials>) {
       state.signUp.loading = true;
       state.signUp.error = null;
@@ -90,6 +92,7 @@ export const { reducer: authReducer, actions: authActions } = createSlice({
       state.signUp.loading = false;
       state.signUp.error = action.payload.error;
     },
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     refresh(state, action: PayloadAction<Action>) {
       state.refresh.loading = true;
       state.refresh.error = null;

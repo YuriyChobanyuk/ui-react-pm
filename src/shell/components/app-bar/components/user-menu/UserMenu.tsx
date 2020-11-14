@@ -7,11 +7,11 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import PermContactCalendarOutlinedIcon from '@material-ui/icons/PermContactCalendarOutlined';
 import ExitToAppOutlinedIcon from '@material-ui/icons/ExitToAppOutlined';
 import Box from '@material-ui/core/Box';
-import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
+import { makeStyles, createStyles } from '@material-ui/core/styles';
 import { IUser } from '../../../../../interfaces';
 import { useMenu } from '../../../../../hooks/use-menu';
 
-const useStyles = makeStyles((theme: Theme) =>
+const useStyles = makeStyles(() =>
   createStyles({
     userMenuList: {
       minWidth: '10rem',

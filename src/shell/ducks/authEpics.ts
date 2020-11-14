@@ -14,7 +14,7 @@ import { getPath } from '../../utils/navigation.utils';
 import { ADMIN_PATH, HOME_PATH } from '../../constants/navigation';
 
 type LoginAction = ReturnType<typeof authActions.login>;
-type SignUpAction = ReturnType<typeof authActions.signUp>;
+// type SignUpAction = ReturnType<typeof authActions.signUp>;
 
 const loginEpic: Epic<any, any, RootState, Api> = (
   action$,

@@ -21,7 +21,6 @@
     "no-param-reassign": "off",
     "import/no-cycle": "off",
     "import/no-extraneous-dependencies": "off",
-    "no-unused-vars": "warn",
     "react/no-unescaped-entities": "off"
   }
 }

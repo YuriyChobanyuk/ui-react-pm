@@ -12,7 +12,6 @@ import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import SideNavigation from '../side-navigation';
 import { checkIsLoginPage } from '../../../utils/navigation.utils';
 import { IUser } from '../../../interfaces';
-import { useMenu } from '../../../hooks/use-menu';
 import UserMenu from './components/user-menu';
 
 const useStyles = makeStyles((theme: Theme) =>
