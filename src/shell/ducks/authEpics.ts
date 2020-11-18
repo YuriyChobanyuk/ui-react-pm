@@ -2,21 +2,24 @@ import { combineEpics, Epic, ofType } from 'redux-observable';
 import { from, of } from 'rxjs';
 import { catchError, filter, map, mergeMap, takeUntil } from 'rxjs/operators';
 import { push } from 'connected-react-router';
-import { RootState } from '../../rootReducer';
 
+import { RootState } from '../../rootReducer';
 import { authActions } from './authSlice';
 import { Api } from '../../api';
-import { getAccessToken, setAccessToken } from '../../services/localStorage';
+import {
+  deleteAccessToken,
+  getAccessToken,
+  setAccessToken,
+} from '../../services/localStorage';
 import { ExtendedAxiosError } from '../../api/appClient';
-import { ApiErrorAction, UserRole } from '../../interfaces';
+import { ApiErrorAction } from '../../interfaces';
 import { serializeAxiosError } from '../../utils/api.utils';
 import { getPath } from '../../utils/navigation.utils';
-import { ADMIN_PATH, HOME_PATH } from '../../constants/navigation';
+import { LOGIN_PATH } from '../../constants/navigation';
+import { LoginAction, handleAuthRequest, SignUpAction } from './utils';
+import { authSelectors } from './index';
 
-type LoginAction = ReturnType<typeof authActions.login>;
-// type SignUpAction = ReturnType<typeof authActions.signUp>;
-
-const loginEpic: Epic<any, any, RootState, Api> = (
+export const loginEpic: Epic<any, any, RootState, Api> = (
   action$,
   state$,
   { authApi },
@@ -24,33 +27,31 @@ const loginEpic: Epic<any, any, RootState, Api> = (
   action$.pipe(
     ofType(authActions.login.type),
     mergeMap((action: LoginAction) =>
-      from(authApi.loginRequest(action.payload)).pipe(
-        mergeMap(({ data, token }) => {
-          setAccessToken(token);
-          const pathElement =
-            data.user.role === UserRole.ADMIN ? ADMIN_PATH : HOME_PATH;
-          const actions = [
-            push(getPath(pathElement)),
-            authActions.loginSuccess(data.user),
-          ];
-
-          return from(actions);
-        }),
-        takeUntil(action$.pipe(ofType(authActions.logout.type))),
-        catchError((error: ExtendedAxiosError) => {
-          const applicationError = serializeAxiosError(error);
-          return of(
-            authActions.loginError({
-              error: applicationError,
-              originalAction: action,
-            }),
-          );
-        }),
+      handleAuthRequest(
+        from(authApi.loginRequest(action.payload)),
+        action$,
+        action,
       ),
     ),
   );
 
-const currentUserEpic: Epic<any, any, RootState, Api> = (
+const signUpEpic: Epic<any, any, RootState, Api> = (
+  action$,
+  state$,
+  { authApi },
+) =>
+  action$.pipe(
+    ofType(authActions.signUp.type),
+    mergeMap((action: SignUpAction) =>
+      handleAuthRequest(
+        from(authApi.signUpRequest(action.payload)),
+        action$,
+        action,
+      ),
+    ),
+  );
+
+export const currentUserEpic: Epic<any, any, RootState, Api> = (
   action$,
   state$,
   { authApi },
@@ -73,23 +74,30 @@ const currentUserEpic: Epic<any, any, RootState, Api> = (
     ),
   );
 
-const refreshEpic: Epic<any, any, RootState, Api> = (
+export const refreshEpic: Epic<any, any, RootState, Api> = (
   action$,
   state$,
   { authApi },
 ) =>
   action$.pipe(
     ofType(authActions.getUserError.type),
-    filter(
-      (action: ApiErrorAction) => action.payload.error?.status?.isAxiosError,
-    ),
+    filter((action: ApiErrorAction) => {
+      const { isAuthError } = action.payload.error.status;
+      const refreshMayBeCalled = authSelectors.selectRefreshMayBeCalled(
+        state$.value,
+      );
+      return (
+        action.payload.error?.status?.isAxiosError &&
+        refreshMayBeCalled &&
+        isAuthError
+      );
+    }),
     map((action) => {
-      const { isAuthError, isRefreshError } = action.payload.error.status;
+      const { isRefreshError } = action.payload.error.status;
       const isRetry = action.payload.originalAction.meta?.isRetry;
       const hasAccessToken = !!getAccessToken();
 
-      const shouldRefresh =
-        isAuthError && hasAccessToken && !isRetry && !isRefreshError;
+      const shouldRefresh = hasAccessToken && !isRetry && !isRefreshError;
 
       return {
         originalAction: action.payload.originalAction,
@@ -98,14 +106,18 @@ const refreshEpic: Epic<any, any, RootState, Api> = (
     }),
     mergeMap(({ originalAction, shouldRefresh }) => {
       if (!shouldRefresh) {
-        return from([push('/login')]);
+        deleteAccessToken();
+        return from([push(getPath(LOGIN_PATH))]);
       }
 
       return from(authApi.refreshRequest()).pipe(
         takeUntil(action$.pipe(ofType(authActions.logout.type))),
         mergeMap((res) => {
           setAccessToken(res.token);
-          originalAction.meta = { isRetry: true };
+          originalAction.meta = {
+            ...(originalAction.meta || {}),
+            isRetry: true,
+          };
 
           return from([
             authActions.refreshSuccess(res.data.user),
@@ -125,4 +137,19 @@ const refreshEpic: Epic<any, any, RootState, Api> = (
     }),
   );
 
-export const authEpic = combineEpics(loginEpic, refreshEpic, currentUserEpic);
+export const logoutEpic: Epic<any, any, RootState, Api> = (action$) =>
+  action$.pipe(
+    ofType(authActions.logout.type),
+    mergeMap(() => {
+      deleteAccessToken();
+      return of(push(getPath(LOGIN_PATH)));
+    }),
+  );
+
+export const authEpic = combineEpics(
+  loginEpic,
+  refreshEpic,
+  currentUserEpic,
+  signUpEpic,
+  logoutEpic,
+);

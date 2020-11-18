@@ -2,9 +2,15 @@ import {
   REFRESH_ENDPOINT,
   LOGIN_ENDPOINT,
   CURRENT_USER_ENDPOINT,
+  SIGNUP_ENDPOINT,
 } from './endpoints';
 import appClient from './appClient';
-import { AuthResponse, IUser, LoginCredentials } from '../interfaces';
+import {
+  AuthResponse,
+  IUser,
+  LoginCredentials,
+  SignUpCredentials,
+} from '../interfaces';
 import { getResponseData } from '../utils/api.utils';
 
 export function refreshRequest(): Promise<AuthResponse> {
@@ -19,4 +25,10 @@ export function loginRequest(
 
 export function getUserRequest(): Promise<IUser> {
   return appClient.get(CURRENT_USER_ENDPOINT).then(getResponseData);
+}
+
+export function signUpRequest(signUpCredentials: SignUpCredentials) {
+  return appClient
+    .post(SIGNUP_ENDPOINT, signUpCredentials)
+    .then(getResponseData);
 }

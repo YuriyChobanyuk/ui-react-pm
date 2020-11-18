@@ -14,7 +14,7 @@ export function serializeAxiosError(
   const isAuthError = error.response?.status === 401;
   const { isAxiosError } = error;
   // todo find better way to determine if request was for token refresh
-  const isRefreshError = !!originalRequest.url?.includes(REFRESH_ENDPOINT);
+  const isRefreshError = !!originalRequest?.url?.includes(REFRESH_ENDPOINT);
 
   return {
     message: error.message,

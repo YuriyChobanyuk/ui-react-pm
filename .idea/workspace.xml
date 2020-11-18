@@ -5,15 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="10f8b1ec-d60c-444c-a78e-6e69b5b388a4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.eslintrc" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shell/ducks/authEpics.test.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shell/ducks/utils.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/redux.utils.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shell/Shell.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shell/Shell.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shell/components/app-bar/ApplicationBar.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shell/components/app-bar/ApplicationBar.test.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shell/components/app-bar/ApplicationBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shell/components/app-bar/ApplicationBar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shell/components/app-bar/components/user-menu/UserMenu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shell/components/app-bar/components/user-menu/UserMenu.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shell/components/login-page/LoginPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shell/components/login-page/LoginPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/auth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/auth.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shell/ducks/authEpics.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/shell/ducks/authEpics.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shell/ducks/authSelectors.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/shell/ducks/authSelectors.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shell/ducks/authSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/shell/ducks/authSlice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/api.utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/api.utils.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,87 +50,89 @@
     <property name="nodejs_interpreter_path" value="$USER_HOME$/.nvm/versions/node/v12.18.3/bin/node" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="prettierjs.PrettierConfiguration.Package" value="$USER_HOME$/.nvm/versions/node/v12.18.3/lib/node_modules/prettier" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.HTML" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager" selected="Jest.ApplicationBar tests">
-    <configuration name="ApplicationBar tests" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Jest.Auth epics tests">
+    <configuration name="Auth epics tests" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
       <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
       <working-dir value="$PROJECT_DIR$" />
       <envs />
       <scope-kind value="SUITE" />
-      <test-file value="$PROJECT_DIR$/src/shell/components/app-bar/ApplicationBar.test.tsx" />
+      <test-file value="$PROJECT_DIR$/src/shell/ducks/authEpics.test.ts" />
       <test-names>
-        <test-name value="ApplicationBar tests" />
+        <test-name value="Auth epics tests" />
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="ApplicationBar tests.should handle auth pages" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+    <configuration name="Auth epics tests.Refresh epic test.should prevent multiple refresh calls" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
       <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
       <working-dir value="$PROJECT_DIR$" />
       <envs />
       <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/src/shell/components/app-bar/ApplicationBar.test.tsx" />
+      <test-file value="$PROJECT_DIR$/src/shell/ducks/authEpics.test.ts" />
       <test-names>
-        <test-name value="ApplicationBar tests" />
-        <test-name value="should handle auth pages" />
+        <test-name value="Auth epics tests" />
+        <test-name value="Refresh epic test" />
+        <test-name value="should prevent multiple refresh calls" />
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="ApplicationBar tests.should handle logout" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+    <configuration name="Auth epics tests.Refresh epic test.should skip refreshing" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
       <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
       <working-dir value="$PROJECT_DIR$" />
       <envs />
       <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/src/shell/components/app-bar/ApplicationBar.test.tsx" />
+      <test-file value="$PROJECT_DIR$/src/shell/ducks/authEpics.test.ts" />
       <test-names>
-        <test-name value="ApplicationBar tests" />
-        <test-name value="should handle logout" />
+        <test-name value="Auth epics tests" />
+        <test-name value="Refresh epic test" />
+        <test-name value="should skip refreshing" />
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="ApplicationBar tests.should redirect on link click" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+    <configuration name="Auth epics tests.should handle get user" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
       <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
       <working-dir value="$PROJECT_DIR$" />
       <envs />
       <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/src/shell/components/app-bar/ApplicationBar.test.tsx" />
+      <test-file value="$PROJECT_DIR$/src/shell/ducks/authEpics.test.ts" />
       <test-names>
-        <test-name value="ApplicationBar tests" />
-        <test-name value="should redirect on link click" />
+        <test-name value="Auth epics tests" />
+        <test-name value="should handle get user" />
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="user menu tests.should dispatch logout" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+    <configuration name="Auth epics tests.should logout from application" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
       <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
       <working-dir value="$PROJECT_DIR$" />
       <envs />
       <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/src/shell/components/app-bar/components/user-menu/UserMenu.test.tsx" />
+      <test-file value="$PROJECT_DIR$/src/shell/ducks/authEpics.test.ts" />
       <test-names>
-        <test-name value="user menu tests" />
-        <test-name value="should dispatch logout" />
+        <test-name value="Auth epics tests" />
+        <test-name value="should logout from application" />
       </test-names>
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Jest.ApplicationBar tests" />
-        <item itemvalue="Jest.user menu tests.should dispatch logout" />
-        <item itemvalue="Jest.ApplicationBar tests.should handle logout" />
-        <item itemvalue="Jest.ApplicationBar tests.should redirect on link click" />
-        <item itemvalue="Jest.ApplicationBar tests.should handle auth pages" />
+        <item itemvalue="Jest.Auth epics tests" />
+        <item itemvalue="Jest.Auth epics tests.should handle get user" />
+        <item itemvalue="Jest.Auth epics tests.Refresh epic test.should prevent multiple refresh calls" />
+        <item itemvalue="Jest.Auth epics tests.Refresh epic test.should skip refreshing" />
+        <item itemvalue="Jest.Auth epics tests.should logout from application" />
       </list>
     </recent_temporary>
   </component>
@@ -161,7 +164,12 @@
       <workItem from="1605278930497" duration="4381000" />
       <workItem from="1605287655817" duration="333000" />
       <workItem from="1605288001639" duration="4407000" />
-      <workItem from="1605345345281" duration="3108000" />
+      <workItem from="1605345345281" duration="12270000" />
+      <workItem from="1605434545048" duration="25011000" />
+      <workItem from="1605482544932" duration="316000" />
+      <workItem from="1605551788957" duration="7390000" />
+      <workItem from="1605638323265" duration="7833000" />
+      <workItem from="1605728468944" duration="6553000" />
     </task>
     <servers />
   </component>
@@ -173,45 +181,109 @@
       <screen x="0" y="34" width="1920" height="1046" />
     </state>
     <state x="753" y="398" width="404" height="324" key="#ESLint/0.34.1920.1046@0.34.1920.1046" timestamp="1605278913539" />
+    <state x="100" y="134" width="1720" height="846" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog" timestamp="1605734772864">
+      <screen x="0" y="34" width="1920" height="1046" />
+    </state>
+    <state x="100" y="134" width="1720" height="846" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/0.34.1920.1046@0.34.1920.1046" timestamp="1605734772864" />
     <state x="562" y="189" width="786" height="743" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1603914666172">
       <screen x="0" y="34" width="1920" height="1046" />
     </state>
     <state x="562" y="189" width="786" height="743" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.34.1920.1046@0.34.1920.1046" timestamp="1603914666172" />
-    <state x="637" y="201" width="636" height="719" key="FileChooserDialogImpl" timestamp="1605278437981">
+    <state x="407" y="34" width="1096" height="1046" key="CommitChangelistDialog2" timestamp="1605478018839">
       <screen x="0" y="34" width="1920" height="1046" />
     </state>
-    <state x="637" y="201" width="636" height="719" key="FileChooserDialogImpl/0.34.1920.1046@0.34.1920.1046" timestamp="1605278437981" />
-    <state width="1892" height="187" key="GridCell.Tab.0.bottom" timestamp="1605346257064">
+    <state x="407" y="34" width="1096" height="1046" key="CommitChangelistDialog2/0.34.1920.1046@0.34.1920.1046" timestamp="1605478018839" />
+    <state x="637" y="201" width="636" height="719" key="FileChooserDialogImpl" timestamp="1605729008981">
       <screen x="0" y="34" width="1920" height="1046" />
     </state>
-    <state width="1892" height="187" key="GridCell.Tab.0.bottom/0.34.1920.1046@0.34.1920.1046" timestamp="1605346257064" />
-    <state width="1892" height="187" key="GridCell.Tab.0.center" timestamp="1605346257064">
+    <state x="637" y="201" width="636" height="719" key="FileChooserDialogImpl/0.34.1920.1046@0.34.1920.1046" timestamp="1605729008981" />
+    <state width="1892" height="429" key="GridCell.Tab.0.bottom" timestamp="1605735628058">
       <screen x="0" y="34" width="1920" height="1046" />
     </state>
-    <state width="1892" height="187" key="GridCell.Tab.0.center/0.34.1920.1046@0.34.1920.1046" timestamp="1605346257064" />
-    <state width="1892" height="187" key="GridCell.Tab.0.left" timestamp="1605346257063">
+    <state width="1892" height="429" key="GridCell.Tab.0.bottom/0.34.1920.1046@0.34.1920.1046" timestamp="1605735628058" />
+    <state width="1892" height="429" key="GridCell.Tab.0.center" timestamp="1605735628055">
       <screen x="0" y="34" width="1920" height="1046" />
     </state>
-    <state width="1892" height="187" key="GridCell.Tab.0.left/0.34.1920.1046@0.34.1920.1046" timestamp="1605346257063" />
-    <state width="1892" height="187" key="GridCell.Tab.0.right" timestamp="1605346257064">
+    <state width="1892" height="429" key="GridCell.Tab.0.center/0.34.1920.1046@0.34.1920.1046" timestamp="1605735628055" />
+    <state width="1892" height="429" key="GridCell.Tab.0.left" timestamp="1605735628053">
       <screen x="0" y="34" width="1920" height="1046" />
     </state>
-    <state width="1892" height="187" key="GridCell.Tab.0.right/0.34.1920.1046@0.34.1920.1046" timestamp="1605346257064" />
-    <state x="173" y="34" width="1350" height="1046" key="SettingsEditor" timestamp="1604846010317">
+    <state width="1892" height="429" key="GridCell.Tab.0.left/0.34.1920.1046@0.34.1920.1046" timestamp="1605735628053" />
+    <state width="1892" height="429" key="GridCell.Tab.0.right" timestamp="1605735628056">
       <screen x="0" y="34" width="1920" height="1046" />
     </state>
-    <state x="173" y="34" width="1350" height="1046" key="SettingsEditor/0.34.1920.1046@0.34.1920.1046" timestamp="1604846010317" />
-    <state width="746" height="596" key="SwitcherDM" timestamp="1603913994408">
+    <state width="1892" height="429" key="GridCell.Tab.0.right/0.34.1920.1046@0.34.1920.1046" timestamp="1605735628056" />
+    <state width="1892" height="407" key="GridCell.Tab.1.bottom" timestamp="1605561100351">
       <screen x="0" y="34" width="1920" height="1046" />
     </state>
-    <state width="746" height="596" key="SwitcherDM/0.34.1920.1046@0.34.1920.1046" timestamp="1603913994408" />
+    <state width="1892" height="407" key="GridCell.Tab.1.bottom/0.34.1920.1046@0.34.1920.1046" timestamp="1605561100351" />
+    <state width="1892" height="407" key="GridCell.Tab.1.center" timestamp="1605561100350">
+      <screen x="0" y="34" width="1920" height="1046" />
+    </state>
+    <state width="1892" height="407" key="GridCell.Tab.1.center/0.34.1920.1046@0.34.1920.1046" timestamp="1605561100350" />
+    <state width="1892" height="407" key="GridCell.Tab.1.left" timestamp="1605561100350">
+      <screen x="0" y="34" width="1920" height="1046" />
+    </state>
+    <state width="1892" height="407" key="GridCell.Tab.1.left/0.34.1920.1046@0.34.1920.1046" timestamp="1605561100350" />
+    <state width="1892" height="407" key="GridCell.Tab.1.right" timestamp="1605561100351">
+      <screen x="0" y="34" width="1920" height="1046" />
+    </state>
+    <state width="1892" height="407" key="GridCell.Tab.1.right/0.34.1920.1046@0.34.1920.1046" timestamp="1605561100351" />
+    <state width="1892" height="407" key="GridCell.Tab.2.bottom" timestamp="1605561100352">
+      <screen x="0" y="34" width="1920" height="1046" />
+    </state>
+    <state width="1892" height="407" key="GridCell.Tab.2.bottom/0.34.1920.1046@0.34.1920.1046" timestamp="1605561100352" />
+    <state width="1892" height="407" key="GridCell.Tab.2.center" timestamp="1605561100351">
+      <screen x="0" y="34" width="1920" height="1046" />
+    </state>
+    <state width="1892" height="407" key="GridCell.Tab.2.center/0.34.1920.1046@0.34.1920.1046" timestamp="1605561100351" />
+    <state width="1892" height="407" key="GridCell.Tab.2.left" timestamp="1605561100351">
+      <screen x="0" y="34" width="1920" height="1046" />
+    </state>
+    <state width="1892" height="407" key="GridCell.Tab.2.left/0.34.1920.1046@0.34.1920.1046" timestamp="1605561100351" />
+    <state width="1892" height="407" key="GridCell.Tab.2.right" timestamp="1605561100352">
+      <screen x="0" y="34" width="1920" height="1046" />
+    </state>
+    <state width="1892" height="407" key="GridCell.Tab.2.right/0.34.1920.1046@0.34.1920.1046" timestamp="1605561100352" />
+    <state width="1892" height="407" key="GridCell.Tab.3.bottom" timestamp="1605561100353">
+      <screen x="0" y="34" width="1920" height="1046" />
+    </state>
+    <state width="1892" height="407" key="GridCell.Tab.3.bottom/0.34.1920.1046@0.34.1920.1046" timestamp="1605561100353" />
+    <state width="1892" height="407" key="GridCell.Tab.3.center" timestamp="1605561100352">
+      <screen x="0" y="34" width="1920" height="1046" />
+    </state>
+    <state width="1892" height="407" key="GridCell.Tab.3.center/0.34.1920.1046@0.34.1920.1046" timestamp="1605561100352" />
+    <state width="1892" height="407" key="GridCell.Tab.3.left" timestamp="1605561100352">
+      <screen x="0" y="34" width="1920" height="1046" />
+    </state>
+    <state width="1892" height="407" key="GridCell.Tab.3.left/0.34.1920.1046@0.34.1920.1046" timestamp="1605561100352" />
+    <state width="1892" height="407" key="GridCell.Tab.3.right" timestamp="1605561100352">
+      <screen x="0" y="34" width="1920" height="1046" />
+    </state>
+    <state width="1892" height="407" key="GridCell.Tab.3.right/0.34.1920.1046@0.34.1920.1046" timestamp="1605561100352" />
+    <state x="173" y="34" width="1350" height="1046" key="SettingsEditor" timestamp="1605653066909">
+      <screen x="0" y="34" width="1920" height="1046" />
+    </state>
+    <state x="173" y="34" width="1350" height="1046" key="SettingsEditor/0.34.1920.1046@0.34.1920.1046" timestamp="1605653066909" />
+    <state width="746" height="596" key="SwitcherDM" timestamp="1605558275448">
+      <screen x="0" y="34" width="1920" height="1046" />
+    </state>
+    <state width="746" height="596" key="SwitcherDM/0.34.1920.1046@0.34.1920.1046" timestamp="1605558275448" />
+    <state x="392" y="103" width="1125" height="915" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1605449212897">
+      <screen x="0" y="34" width="1920" height="1046" />
+    </state>
+    <state x="392" y="103" width="1125" height="915" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.34.1920.1046@0.34.1920.1046" timestamp="1605449212897" />
     <state x="701" y="456" width="507" height="209" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1605346830552">
       <screen x="0" y="34" width="1920" height="1046" />
     </state>
     <state x="701" y="456" width="507" height="209" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.34.1920.1046@0.34.1920.1046" timestamp="1605346830552" />
-    <state x="453" y="34" width="1009" height="1470" key="search.everywhere.popup" timestamp="1605350047249">
+    <state x="578" y="51" width="764" height="1011" key="find.popup" timestamp="1605475130574">
       <screen x="0" y="34" width="1920" height="1046" />
     </state>
-    <state x="453" y="34" width="1009" height="1470" key="search.everywhere.popup/0.34.1920.1046@0.34.1920.1046" timestamp="1605350047249" />
+    <state x="578" y="51" width="764" height="1011" key="find.popup/0.34.1920.1046@0.34.1920.1046" timestamp="1605475130574" />
+    <state x="453" y="34" width="1009" height="1470" key="search.everywhere.popup" timestamp="1605350119216">
+      <screen x="0" y="34" width="1920" height="1046" />
+    </state>
+    <state x="453" y="34" width="1009" height="1470" key="search.everywhere.popup/0.34.1920.1046@0.34.1920.1046" timestamp="1605350119216" />
   </component>
 </project>

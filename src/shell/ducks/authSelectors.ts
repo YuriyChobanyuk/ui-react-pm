@@ -58,3 +58,9 @@ export const selectRefreshError = createSelector(
   selectRefreshState,
   (refreshState) => refreshState.error,
 );
+export const selectRefreshMayBeCalled = createSelector(
+  selectRefreshState,
+  (refreshState) => {
+    return refreshState.refreshTimesCalled <= 1;
+  },
+);

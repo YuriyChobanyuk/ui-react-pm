@@ -1,5 +1,11 @@
 import { createSlice, PayloadAction, Action } from '@reduxjs/toolkit';
 import {
+  setRequestLoading,
+  setRequestFinished,
+  setRequestData,
+  setRequestError,
+} from '../../utils/redux.utils';
+import {
   ApplicationError,
   IUser,
   LoginCredentials,
@@ -24,10 +30,11 @@ interface InitialState {
   refresh: {
     loading: boolean;
     error: ApplicationError | null;
+    refreshTimesCalled: number;
   };
 }
 
-const initialState: InitialState = {
+export const initialState: InitialState = {
   user: {
     data: null,
     loading: false,
@@ -44,6 +51,7 @@ const initialState: InitialState = {
   refresh: {
     loading: false,
     error: null,
+    refreshTimesCalled: 0,
   },
 };
 
@@ -52,64 +60,58 @@ export const { reducer: authReducer, actions: authActions } = createSlice({
   initialState,
   reducers: {
     getUser(state) {
-      state.user.loading = true;
-      state.user.error = null;
+      setRequestLoading(state.user);
     },
     getUserSuccess(state, action: PayloadAction<IUser>) {
-      state.user.data = action.payload;
-      state.user.loading = false;
-      state.user.error = null;
+      setRequestData(state.user, action.payload);
     },
     getUserError(state, action: PayloadAction<ApiErrorActionPayload>) {
-      state.user.loading = false;
-      state.user.error = action.payload.error;
+      setRequestError(state.user, action.payload.error);
     },
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     login(state, action: PayloadAction<LoginCredentials>) {
-      state.login.loading = true;
-      state.login.error = null;
+      setRequestLoading(state.login);
     },
     loginSuccess(state, action: PayloadAction<IUser>) {
       state.user.data = action.payload;
-      state.login.loading = false;
-      state.login.error = null;
+      setRequestFinished(state.login);
     },
     loginError(state, action: PayloadAction<ApiErrorActionPayload>) {
-      state.login.loading = false;
-      state.login.error = action.payload.error;
+      setRequestError(state.login, action.payload.error);
     },
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     signUp(state, action: PayloadAction<SignUpCredentials>) {
-      state.signUp.loading = true;
-      state.signUp.error = null;
+      setRequestLoading(state.signUp);
     },
     signUpSuccess(state, action: PayloadAction<IUser>) {
       state.user.data = action.payload;
-      state.signUp.loading = false;
-      state.signUp.error = null;
+      setRequestFinished(state.signUp);
     },
     signUpError(state, action: PayloadAction<ApiErrorActionPayload>) {
-      state.signUp.loading = false;
-      state.signUp.error = action.payload.error;
+      setRequestError(state.signUp, action.payload.error);
     },
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     refresh(state, action: PayloadAction<Action>) {
-      state.refresh.loading = true;
-      state.refresh.error = null;
+      setRequestLoading(state.refresh);
+      state.refresh.refreshTimesCalled += 1;
     },
     refreshSuccess(state, action: PayloadAction<IUser>) {
       state.user.data = action.payload;
-      state.refresh.loading = false;
-      state.refresh.error = null;
+      setRequestFinished(state.refresh);
+      state.refresh.refreshTimesCalled = 0;
     },
     refreshError(state, action: PayloadAction<ApiErrorActionPayload>) {
-      state.refresh.loading = false;
-      state.refresh.error = action.payload.error;
+      setRequestError(state.refresh, action.payload.error);
+      state.refresh.refreshTimesCalled = 0;
     },
     logout(state) {
       state.user.data = null;
       state.user.loading = false;
       state.user.error = null;
+      state.refresh.refreshTimesCalled = 0;
+      setRequestFinished(state.login);
+      setRequestFinished(state.signUp);
+      setRequestFinished(state.refresh);
     },
   },
 });
