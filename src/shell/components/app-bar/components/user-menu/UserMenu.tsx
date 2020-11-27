@@ -8,6 +8,7 @@ import PermContactCalendarOutlinedIcon from '@material-ui/icons/PermContactCalen
 import ExitToAppOutlinedIcon from '@material-ui/icons/ExitToAppOutlined';
 import Box from '@material-ui/core/Box';
 import { makeStyles, createStyles } from '@material-ui/core/styles';
+import { useTranslation } from 'react-i18next';
 import { IUser } from '../../../../../interfaces';
 import { useMenu } from '../../../../../hooks/use-menu';
 
@@ -15,6 +16,13 @@ const useStyles = makeStyles(() =>
   createStyles({
     userMenuList: {
       minWidth: '10rem',
+    },
+    menuListItem: {
+      textTransform: 'capitalize',
+    },
+    listItemIcon: {
+      minWidth: 0,
+      marginRight: '0.5rem',
     },
   }),
 );
@@ -26,11 +34,27 @@ interface Props {
 
 const UserMenu: React.FC<Props> = ({ user, handleLogout }) => {
   const classes = useStyles();
+  const { t } = useTranslation();
+
   const [isOpenedUserMenu, openUserMenu, closeUserMenu, anchorEl] = useMenu();
+
   const handleLogoutClick = () => {
     handleLogout();
     closeUserMenu();
   };
+
+  const menuItemsList = [
+    {
+      Icon: () => <PermContactCalendarOutlinedIcon fontSize="small" />,
+      action: closeUserMenu,
+      label: t('shell.userMenu.profile'),
+    },
+    {
+      Icon: () => <ExitToAppOutlinedIcon fontSize="small" />,
+      action: handleLogoutClick,
+      label: t('shell.userMenu.logout'),
+    },
+  ];
 
   return (
     <Box>
@@ -62,18 +86,18 @@ const UserMenu: React.FC<Props> = ({ user, handleLogout }) => {
           list: classes.userMenuList,
         }}
       >
-        <MenuItem onClick={closeUserMenu}>
-          <ListItemIcon>
-            <PermContactCalendarOutlinedIcon fontSize="small" />
-          </ListItemIcon>
-          Profile
-        </MenuItem>
-        <MenuItem onClick={handleLogoutClick}>
-          <ListItemIcon>
-            <ExitToAppOutlinedIcon fontSize="small" />
-          </ListItemIcon>
-          Logout
-        </MenuItem>
+        {menuItemsList.map(({ Icon, action, label }) => (
+          <MenuItem
+            onClick={action}
+            className={classes.menuListItem}
+            key={label}
+          >
+            <ListItemIcon className={classes.listItemIcon}>
+              <Icon />
+            </ListItemIcon>
+            {label}
+          </MenuItem>
+        ))}
       </Menu>
     </Box>
   );

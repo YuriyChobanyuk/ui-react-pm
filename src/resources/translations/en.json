@@ -1,0 +1,9 @@
+{
+  "clientHeader": "Manager",
+  "shell": {
+    "userMenu": {
+      "logout": "logout",
+      "profile": "profile"
+    }
+  }
+}
