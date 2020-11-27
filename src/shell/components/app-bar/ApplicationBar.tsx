@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -13,6 +14,7 @@ import SideNavigation from '../side-navigation';
 import { checkIsLoginPage } from '../../../utils/navigation.utils';
 import { IUser } from '../../../interfaces';
 import UserMenu from './components/user-menu';
+
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -47,6 +49,7 @@ interface Props {
 
 const ApplicationBar: React.FC<Props> = ({ user, handleLogout }) => {
   const { pathname } = useLocation();
+  const { t } = useTranslation();
 
   const isAuthenticated = !!user;
   const isLoginPage = checkIsLoginPage(pathname);
@@ -79,7 +82,7 @@ const ApplicationBar: React.FC<Props> = ({ user, handleLogout }) => {
                 className={classes.link}
               >
                 <Typography variant="h6" className={classes.linkText}>
-                  manager
+                  {t('clientHeader')}
                 </Typography>
               </Link>
             </Box>
